@@ -91,7 +91,7 @@ pretrained_network=model
 
 А также: 
 
-+ Уже обученные веса saved_weght_acc_66 в weights.py,
++ Уже обученные веса saved_weght_acc_66 в weights.py с печальной Accuracy = 66% (вы можете это исправить! - в этом вся суть игры),
 + NeuroTrain.py для теста обучения,
 + NeuroPredict.py для тестовых предсказаний на готовой моделе,
 + NeuroAccuracy.py - для оценки точности модели,
