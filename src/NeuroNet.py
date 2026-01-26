@@ -387,7 +387,7 @@ def train_best_loss_network(
 		if current_loss < best_loss:
 			best_loss = current_loss
 			best_network = deep_copy_network(network)
-			# print(f"Новый рекорд на эпохе {epoch}: loss = {best_loss:.4f}")
+			# print("Новый рекорд на эпохе ", epoch, ": loss = ", best_loss)
 
 		if epoch % 1 == 0:
 			if use_validation:
@@ -395,7 +395,7 @@ def train_best_loss_network(
 			else:
 				print("Epoch ", epoch, "Train Loss: ", avg_train_loss)
 
-	return best_network  # ← возвращаем лучшую сеть, а не последнюю!
+	return best_network
 
 
 # ========================
