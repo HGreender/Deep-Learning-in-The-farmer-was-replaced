@@ -9,56 +9,12 @@ def get_coordinates():
 	return get_pos_x(), get_pos_y()
 
 
-def plant_(my_plant):
-	### Checks the soil and plants the [my_plant]
-	if my_plant in SOIL_PLANTS:
-		if get_ground_type() == Grounds.Grassland:
-			till()
-		plant(my_plant)
-	else:
-		if get_ground_type() == Grounds.Soil:
-			till()
-		plant(my_plant)
-
-
-def plant_by_coords(my_plant, coords_list):
-	### Plants the [my_plant] by [coords_list]
-	for x, y in coords_list:
-		move_to(x, y)
-		plant_(my_plant)
-
-
 def multi_move(n, dir):
 	### Moving by [n] cells in the [dir] direction
 	### >>> Returns the resulting coordinates
 	for i in range(n):
 		move(dir)
 	return get_coordinates()
-
-
-def move_like_snake(i, j):
-	### Snake movement for each iteration while iterating through the entire field
-	world_last_value = WORLD_SIZE - 1
-
-	if i % 2 == 0:
-		if j != world_last_value:
-			move(East)
-		else:
-			move(South)
-	else:
-		if j != world_last_value:
-			move(West)
-		else:
-			move(South)
-
-
-def move_to_row_start():
-	### Move the drone to start coordinates	
-	### >>> Returns the resulting coordinates
-	x = 0
-	y = get_pos_y()
-	move_to(x, y)
-	return x, y
 
 
 def move_to(x1, y1):
