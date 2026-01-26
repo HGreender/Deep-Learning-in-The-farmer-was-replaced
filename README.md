@@ -42,7 +42,7 @@ NeuroNet — Нейросеть с нуля для игры "The farmer was repl
 + batch_size — размер батча
 + activation_function — 'relu' или 'sigmoid'
 
-### ИСПОЛЬЗОВАНИЕ
+## ИСПОЛЬЗОВАНИЕ
 
 #### 1. Подготовьте данные в формате:
 
