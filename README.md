@@ -1,7 +1,7 @@
 # Deep-Learning-in-The-farmer-was-replaced
 A library for implementing a FCNN (fully connected neural network)
 
-NeuroNet — Нейросеть с нуля для игры "The farmer was replaced"
+NeuroNet — Нейросеть с нуля для игры ["The farmer was replaced"](https://store.steampowered.com/app/2060160/The_Farmer_Was_Replaced/)
 
 ## ОПИСАНИЕ
 Этот проект реализует полностью функциональную нейронную сеть на чистом Python без использования NumPy, TensorFlow или PyTorch, так как игра их не поддерживает.
