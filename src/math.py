@@ -296,3 +296,9 @@ def relu_derivative_matrix(M):
 	for row in M:
 		result.append(relu_derivative_vector(row))
 	return result
+
+
+def sleep(seconds):
+	start_t = get_time()
+	while get_time() - start_t < seconds:
+		pass

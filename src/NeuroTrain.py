@@ -1,6 +1,5 @@
 from Movements import move_to_start
 from NeuroNet import *
-from Utils import sleep
 from Dataset import h_w_f_g
 
 

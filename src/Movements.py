@@ -1,4 +1,4 @@
-from Constants import SOIL_PLANTS, WORLD_SIZE, X_DIRS, Y_DIRS
+from Constants import WORLD_SIZE, X_DIRS, Y_DIRS
 
 
 LIB_ERROR = 'ERROR in Movements'

@@ -1,7 +1,7 @@
 from Movements import move_to_start
 from NeuroNet import *
-from Utils import sleep
-from weghts import saved_weght_acc_00
+from math import sleep
+from weghts import saved_weght_acc_66
 from Dataset import h_w_f_g
 
 
@@ -47,7 +47,7 @@ def main():
 
 	activation_function = 'relu'
 
-	model = saved_weght_acc_00
+	model = saved_weght_acc_66
 	
 	probs = predict(X_test_norm, model, activation_function)
 	y_pred = []

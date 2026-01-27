@@ -1,8 +1,8 @@
 from Movements import move_to_start
 from NeuroNet import *
-from Utils import sleep
 from Dataset import h_w_f_g
-from weghts import saved_weght_acc_00
+from weghts import saved_weght_acc_66
+from math import sleep
 
 
 def main():
@@ -44,7 +44,7 @@ def main():
 	batch_size = 8
 	activation_function = 'relu'
 
-	pretrained_network = saved_weght_acc_00
+	pretrained_network = saved_weght_acc_66
 	model = train_best_loss_network(
 		X_train_norm, y_train,
 		hidden_layers_count, hidden_size,
