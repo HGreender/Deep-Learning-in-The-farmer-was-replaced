@@ -4,7 +4,7 @@ A library for implementing a FCNN (fully connected neural network)
 NeuroNet — Нейросеть с нуля для игры ["The farmer was replaced"](https://store.steampowered.com/app/2060160/The_Farmer_Was_Replaced/)
 
 ## ОПИСАНИЕ
-Этот проект реализует полностью функциональную нейронную сеть на чистом Python без использования NumPy, TensorFlow или PyTorch, так как игра их не поддерживает.
+Этот проект реализует полностью функционирующую нейронную сеть на чистом Python (точнее, на его аналоге, который предоставляет игра) без использования NumPy, TensorFlow или PyTorch, так как игра их не поддерживает.
 Все операции (умножение матриц, активации, обратное распространение) написаны вручную с использованием только циклов и базовых арифметических операций.
 
 ## ОСОБЕННОСТИ
@@ -13,9 +13,9 @@ NeuroNet — Нейросеть с нуля для игры ["The farmer was rep
 + Softmax и кросс-энтропия для классификации
 + Обучение по батчам
 + Нормализация данных
-+ Сохранение лучшей модели по loss
-+ Дообучение предварительно обученной сети
-+ Работает с числовыми данными и строковыми метками (автоматическое преобразование)
++ Сохранение модели по лучшему значению loss (СОХРАНЕНИЕ ИДЁТ ЧЕРЕЗ quick_print()!)
++ Дообучение предварительно обученной сети (Fine-Tuning)
++ Работает с числовыми данными и строковыми метками (автоматическое преобразование, есть one-hot-encoding)
 
 ## ФУНКЦИИ
 Основные функции:
@@ -61,14 +61,14 @@ X_test_norm = normalize(X_test, mean, std)
 #### 4. Обучите модель:
 
 model = train_best_loss_network(
-X_train_norm, y_train,
-hidden_layers_count=2,
-hidden_size=16,
-output_size=2,
-epochs=300,
-lr=0.1,
-batch_size=8,
-activation_function='relu'
+    X_train_norm, y_train,
+    hidden_layers_count=2,
+    hidden_size=16,
+    output_size=2,
+    epochs=300,
+    lr=0.1,
+    batch_size=8,
+    activation_function='relu'
 )
 
 #### 5. Оцените качество:
@@ -80,14 +80,15 @@ probs = predict(X_test_norm, model)
 
 Можно дообучить уже существующую модель:
 updated_model = train_best_loss_network(
-X_new, y_new,
-epochs=50,
-lr=0.01,
-pretrained_network=model
+    X_new, y_new,
+    epochs=50,
+    lr=0.01,
+    pretrained_network=model
 )
 
 ## ГОТОВЫЕ ПРИМЕРЫ
-Проект включает пример датасета h_w_f_g — данные о росте, весе, размере стопы и поле. Автоматически преобразуется в числовые признаки (ИМТ, возраст) и метки (0/1).
+Проект включает тестовый датасет в переменной h_w_f_g файла Dataset.py — данные о росте, весе, размере стопы и поле. Автоматически преобразуется в числовые признаки (ИМТ, возраст) и метки (0/1).
+"Dataset of people's height, weight and shoe size": https://www.kaggle.com/datasets/peimandaii/dataset-of-people/data
 
 А также: 
 
@@ -96,4 +97,6 @@ pretrained_network=model
 + NeuroPredict.py для тестовых предсказаний на готовой моделе,
 + NeuroAccuracy.py - для оценки точности модели,
 + NeuroFineTune.py - для дообучения модели на других данных или параметрах
+
+!!! ВАЖНО: сохранение всех данных идёт с помощью встроенного print() и quick_print(), так как игра не поддерживает работу с файлами. Это значит, что чтобы получить результаты кода, необходимо в файлах игры найти, собственно, файл с выводом (на моей памяти, это output.txt) и перекопировать в игровой .py-файл.
 
